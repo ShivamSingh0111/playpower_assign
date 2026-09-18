@@ -1,0 +1,118 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2500;
+  animation: fadeIn var(--transition-fast);
+}
+
+.modal {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  width: 560px;
+  max-width: 90vw;
+  box-shadow: var(--shadow-popover);
+  overflow: hidden;
+  animation: scaleUp var(--transition-normal);
+}
+
+.header {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.closeBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.closeBtn:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.propertyPreview {
+  padding: 16px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-hover);
+}
+
+.listingTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.listingSub {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  text-align: left;
+}
+
+.optionItem:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-text-primary);
+}
+
+.optionIcon {
+  font-size: 24px;
+}
+
+.optionText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.optionTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.optionDesc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}

@@ -1,0 +1,130 @@
+.amenitiesSection {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--color-border-light);
+  scroll-margin-top: 100px;
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--color-text-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+  margin-bottom: 28px;
+}
+
+.amenityItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  color: var(--color-text-primary);
+}
+
+.showAllButton {
+  padding: 13px 23px;
+  border: 1px solid var(--color-text-primary);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.showAllButton:hover {
+  background-color: var(--color-surface-hover);
+}
+
+/* Modal Overlay */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  animation: fadeIn var(--transition-fast);
+}
+
+.modalContent {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  width: 720px;
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-popover);
+  animation: slideUp var(--transition-normal);
+  overflow: hidden;
+}
+
+.modalHeader {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.modalTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.closeButton {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.closeButton:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.modalBody {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modalAmenityRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.modalAmenityInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modalAmenityName {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.modalAmenityDesc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}

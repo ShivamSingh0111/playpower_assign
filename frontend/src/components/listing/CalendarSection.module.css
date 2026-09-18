@@ -1,0 +1,181 @@
+.calendarSection {
+  padding: 48px 0;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.headerArea {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222222;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #717171;
+}
+
+.calendarsWrapper {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.monthContainer {
+  flex: 1;
+  max-width: 320px;
+}
+
+.monthHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  height: 32px;
+}
+
+.monthName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+}
+
+.navBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.navBtn:hover {
+  background-color: #F7F7F7;
+}
+
+.weekRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.weekHeader {
+  font-size: 12px;
+  font-weight: 600;
+  color: #717171;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 2px;
+}
+
+.emptyDay {
+  height: 40px;
+}
+
+.dayCell {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.dayNumber {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+  z-index: 2;
+}
+
+/* Range selection styles */
+.rangeStart {
+  background-color: #F7F7F7;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.rangeStart .dayNumber {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #222222;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.rangeEnd {
+  background-color: #F7F7F7;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.rangeEnd .dayNumber {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #222222;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.inRange {
+  background-color: #F7F7F7;
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+}
+
+.keyboardBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.keyboardBtn:hover {
+  background-color: #F7F7F7;
+}
+
+.clearBtn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.clearBtn:hover {
+  color: #000000;
+}

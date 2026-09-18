@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Airbnb Production Architecture Diagram</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .canvas {
+      width: 1400px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .title-group h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .title-group p {
+      font-size: 15px;
+      color: #94a3b8;
+      margin-top: 6px;
+    }
+    .legend {
+      display: flex;
+      gap: 20px;
+      background: #0f172a;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .badge-implemented {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background: #10b981;
+      border: 1px solid #059669;
+    }
+    .badge-production {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background: #3b82f6;
+      border: 1px solid #2563eb;
+    }
+
+    /* Grid layout */
+    .flow-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .tier {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 20px 24px;
+      position: relative;
+    }
+    .tier-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #94a3b8;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nodes-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .node {
+      flex: 1;
+      min-width: 180px;
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 14px 18px;
+      border: 1px solid #475569;
+      position: relative;
+    }
+    .node.implemented {
+      border: 2px solid #10b981;
+      background: rgba(16, 185, 129, 0.08);
+    }
+    .node.implemented::after {
+      content: "IMPLEMENTED IN ASSIGNMENT";
+      position: absolute;
+      top: -9px;
+      right: 10px;
+      font-size: 9px;
+      font-weight: 800;
+      background: #10b981;
+      color: #0f172a;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .node-header {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .node-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+    .node-tech {
+      font-size: 11px;
+      color: #38bdf8;
+      margin-top: 8px;
+      font-family: monospace;
+    }
+
+    .connector-arrow {
+      text-align: center;
+      font-size: 18px;
+      color: #64748b;
+      line-height: 1;
+      margin: -10px 0;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="header">
+      <div class="title-group">
+        <h1>Airbnb Vacation Rental Platform — Production Architecture</h1>
+        <p>Production-Scale Evolution vs. Implemented Prototype Architecture</p>
+      </div>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="badge-implemented"></div>
+          <span>Implemented in Assignment</span>
+        </div>
+        <div class="legend-item">
+          <div class="badge-production"></div>
+          <span>Production-Scale Evolution</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-container">
+      <!-- 1. Client & Edge -->
+      <div class="tier">
+        <div class="tier-title">1. Client Layer & Global Edge Tier</div>
+        <div class="nodes-row">
+          <div class="node implemented">
+            <div class="node-header">💻 Desktop Web Client</div>
+            <div class="node-desc">Pixel-accurate React SPA listing page, photo tour overlay, and single-photo Lightbox viewer.</div>
+            <div class="node-tech">React 18 · TypeScript · Vite · Native CSS</div>
+          </div>
+          <div class="node">
+            <div class="node-header">📱 Mobile Clients (Native)</div>
+            <div class="node-desc">iOS & Android mobile native applications consuming listing & booking APIs.</div>
+            <div class="node-tech">Swift / SwiftUI · Kotlin / Jetpack Compose</div>
+          </div>
+          <div class="node">
+            <div class="node-header">🌐 Anycast DNS & Edge Network</div>
+            <div class="node-desc">Geo-routed DNS resolution, DDoS shield, and SSL/TLS termination.</div>
+            <div class="node-tech">Cloudflare Enterprise · AWS Route53</div>
+          </div>
+          <div class="node">
+            <div class="node-header">⚡ Global CDN Edge Caching</div>
+            <div class="node-desc">Edge caching for static assets, WebP images, and pre-rendered listing HTML/payloads.</div>
+            <div class="node-tech">CloudFront / Fastly · Edge PoPs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector-arrow">▼</div>
+
+      <!-- 2. Gateway & Ingress -->
+      <div class="tier">
+        <div class="tier-title">2. Ingress & API Gateway Layer</div>
+        <div class="nodes-row">
+          <div class="node">
+            <div class="node-header">⚖️ Cloud Application Load Balancer</div>
+            <div class="node-desc">High-throughput Layer 7 routing, health probes, zero-downtime blue/green rollouts.</div>
+            <div class="node-tech">AWS ALB · NGINX Ingress Controller</div>
+          </div>
+          <div class="node">
+            <div class="node-header">🚪 API Gateway & Service Mesh</div>
+            <div class="node-desc">JWT authentication, token bucket rate-limiting, gRPC/REST protocol translation.</div>
+            <div class="node-tech">Kong Gateway · Envoy Mesh · OAuth2</div>
+          </div>
+          <div class="node implemented">
+            <div class="node-header">🔌 Backend REST Service (Port 5000)</div>
+            <div class="node-desc">Express REST API providing /api/listing, /api/listing/photos, and /api/listing/reviews.</div>
+            <div class="node-tech">Node.js · Express · TypeScript · CORS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector-arrow">▼</div>
+
+      <!-- 3. Microservices & Business Logic -->
+      <div class="tier">
+        <div class="tier-title">3. Core Domain Microservices (Horizontally Scalable)</div>
+        <div class="nodes-row">
+          <div class="node">
+            <div class="node-header">🏠 Listing Service</div>
+            <div class="node-desc">Property metadata, amenities registry, room arrangements, and host specs.</div>
+            <div class="node-tech">Go / Node.js · gRPC</div>
+          </div>
+          <div class="node">
+            <div class="node-header">🖼️ Media & Asset Service</div>
+            <div class="node-desc">High-res ingestion, asynchronous WebP/AVIF transcoding, dynamic aspect ratios.</div>
+            <div class="node-tech">Sharp / Rust Worker · S3 Hooks</div>
+          </div>
+          <div class="node">
+            <div class="node-header">📅 Reservation & Lock Engine</div>
+            <div class="node-desc">Distributed date range locking, price computation, payment gateway integration.</div>
+            <div class="node-tech">Redis Redlock · Stripe API</div>
+          </div>
+          <div class="node">
+            <div class="node-header">⭐ Reviews & Reputation Service</div>
+            <div class="node-desc">Verified stay verification, 6-category rating calculation, automated moderation.</div>
+            <div class="node-tech">Async Pipeline · Sentiment Analysis</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector-arrow">▼</div>
+
+      <!-- 4. Distributed Caching & Storage -->
+      <div class="split-grid">
+        <div class="tier">
+          <div class="tier-title">4. Distributed Caching & Search Engine</div>
+          <div class="nodes-row">
+            <div class="node">
+              <div class="node-header">⚡ Redis In-Memory Cluster</div>
+              <div class="node-desc">Sub-millisecond read cache for listing metadata, pricing schedules, and rate limiting.</div>
+              <div class="node-tech">Redis 7.2 Cluster · Multi-AZ</div>
+            </div>
+            <div class="node">
+              <div class="node-header">🔍 Elasticsearch / OpenSearch</div>
+              <div class="node-desc">Geo-distance coordinates index, faceted filter queries, full-text listing discovery.</div>
+              <div class="node-tech">OpenSearch 2.x · Geo-point Indexing</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tier">
+          <div class="tier-title">5. Persistence & Object Storage</div>
+          <div class="nodes-row">
+            <div class="node">
+              <div class="node-header">🗄️ PostgreSQL Primary + Read Replicas</div>
+              <div class="node-desc">ACID transaction store for bookings with multi-AZ read replicas handling 95% query load.</div>
+              <div class="node-tech">AWS Aurora PostgreSQL · PgBouncer</div>
+            </div>
+            <div class="node">
+              <div class="node-header">📦 Distributed Object Storage</div>
+              <div class="node-desc">Multi-region bucket for original and responsive property photography.</div>
+              <div class="node-tech">AWS S3 · CloudFront Origin</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector-arrow">▼</div>
+
+      <!-- 5. Async Events & Observability -->
+      <div class="tier">
+        <div class="tier-title">6. Asynchronous Event Pipeline & Observability</div>
+        <div class="nodes-row">
+          <div class="node">
+            <div class="node-header">📨 Event Streaming (Kafka / SQS)</div>
+            <div class="node-desc">Decoupled event publication: listing updates, booking confirmations, notifications.</div>
+            <div class="node-tech">Apache Kafka · Event-driven architecture</div>
+          </div>
+          <div class="node">
+            <div class="node-header">📊 Observability & Reliability</div>
+            <div class="node-desc">Centralized metrics, distributed APM tracing, alerting, and structured logging.</div>
+            <div class="node-tech">Datadog · OpenTelemetry · Prometheus · Grafana</div>
+          </div>
+          <div class="node">
+            <div class="node-header">🚀 CI/CD & Deployment</div>
+            <div class="node-desc">Automated testing, container image scanning, GitOps Kubernetes deployments.</div>
+            <div class="node-tech">GitHub Actions · Docker · ArgoCD · Helm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

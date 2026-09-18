@@ -1,0 +1,125 @@
+/* ============================================================
+   HeroGallery — Airbnb-style 5-photo hero grid
+   Layout: [  large primary  ] [ 2 × 2 secondary grid ]
+   ============================================================ */
+
+.galleryWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 36px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ── Main grid: left half = primary, right half = 2×2 ── */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  height: 450px;
+}
+
+/* ── Primary (left) image ── */
+.primaryHero {
+  position: relative;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px 0 0 12px;
+}
+
+/* ── Right side: 2 columns × 2 rows ── */
+.secondaryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  height: 100%;
+}
+
+.secondaryHeroItem {
+  position: relative;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.secondaryHeroItem:nth-child(2) {
+  border-radius: 0 12px 0 0;
+}
+
+.secondaryHeroItem:nth-child(4) {
+  border-radius: 0 0 12px 0;
+}
+
+/* ── Shared image style ── */
+.photoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1), filter 0.25s ease;
+  display: block;
+}
+
+/* ── Hover darkening overlay ── */
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.2s ease;
+  pointer-events: none;
+}
+
+.primaryHero:hover .photoOverlay,
+.secondaryHeroItem:hover .photoOverlay {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.primaryHero:hover .photoImage,
+.secondaryHeroItem:hover .photoImage {
+  transform: scale(1.025);
+}
+
+/* ── "Show all photos" floating pill button ── */
+.showAllButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  padding: 7px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  z-index: 2;
+  user-select: none;
+}
+
+.showAllButton:hover {
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+.showAllButton:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 768px) {
+  .galleryGrid {
+    grid-template-columns: 1fr;
+    height: 300px;
+  }
+  .secondaryGrid {
+    display: none;
+  }
+  .primaryHero {
+    border-radius: 12px;
+  }
+}

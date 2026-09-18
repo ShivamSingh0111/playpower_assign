@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <!-- Dark Green Circular Background -->
+  <circle cx="60" cy="60" r="60" fill="#113C32" />
+
+  <!-- Semicircular Arch over text -->
+  <path d="M 40 50 A 20 20 0 0 1 80 50" fill="none" stroke="#EAE6DF" stroke-width="1.8" stroke-linecap="round" />
+
+  <!-- MIRASHYA Stylized Text -->
+  <text 
+    x="60" 
+    y="65" 
+    text-anchor="middle" 
+    fill="#EAE6DF" 
+    font-family="'Playfair Display', 'Cinzel', 'Georgia', serif" 
+    font-size="16" 
+    font-weight="500" 
+    letter-spacing="1.2"
+  >
+    MIRASHYA
+  </text>
+
+  <!-- HOMES Subtitle Text -->
+  <text 
+    x="60" 
+    y="78" 
+    text-anchor="middle" 
+    fill="#EAE6DF" 
+    font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif" 
+    font-size="8" 
+    font-weight="500" 
+    letter-spacing="2.8"
+  >
+    HOMES
+  </text>
+</svg>

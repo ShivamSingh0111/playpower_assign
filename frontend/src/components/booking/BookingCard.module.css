@@ -1,0 +1,262 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 370px;
+}
+
+/* ── 10% Off Claim Banner ─────────────────────────────── */
+.discountBanner {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.discountLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tagIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.discountInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.discountText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+}
+
+.termsLink {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.claimBtn {
+  background-color: #F7F7F7;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.claimBtn:hover {
+  background-color: #ECECEC;
+  border-color: #222222;
+}
+
+/* ── Main Reservation Card ────────────────────────────── */
+.cardContainer {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  padding: 24px;
+  width: 100%;
+}
+
+.priceHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.priceAmount {
+  font-size: 24px;
+  font-weight: 800;
+  color: #222222;
+  text-decoration: underline;
+  letter-spacing: -0.3px;
+}
+
+.priceNights {
+  font-size: 16px;
+  font-weight: 400;
+  color: #222222;
+}
+
+/* Selector Box */
+.selectorBox {
+  border: 1px solid #B0B0B0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.dateRow {
+  display: flex;
+  border-bottom: 1px solid #B0B0B0;
+}
+
+.dateField {
+  flex: 1;
+  padding: 12px 14px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.15s ease;
+}
+
+.dateField:first-child {
+  border-right: 1px solid #B0B0B0;
+}
+
+.dateField:hover {
+  background-color: #F7F7F7;
+}
+
+.fieldLabel {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #222222;
+  display: block;
+}
+
+.fieldValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+  margin-top: 4px;
+}
+
+.guestsField {
+  padding: 12px 14px;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.15s ease;
+}
+
+.guestsField:hover {
+  background-color: #F7F7F7;
+}
+
+.guestDropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.counterBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #B0B0B0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #222222;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.counterBtn:hover:not(:disabled) {
+  border-color: #222222;
+}
+
+.counterBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Cancellation Notice */
+.cancellationPill {
+  background-color: #F7F7F7;
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #222222;
+  margin-bottom: 20px;
+}
+
+.cancellationPill strong {
+  font-weight: 600;
+}
+
+/* Reserve CTA Button */
+.reserveButton {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  background: #E00B41;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.reserveButton:hover {
+  background: #D70466;
+}
+
+.reserveButton:active {
+  transform: scale(0.98);
+}
+
+.noChargeNotice {
+  text-align: center;
+  font-size: 14px;
+  color: #717171;
+  margin-top: 14px;
+}
+
+/* Report Link */
+.reportLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #717171;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.reportLink:hover {
+  color: #222222;
+}

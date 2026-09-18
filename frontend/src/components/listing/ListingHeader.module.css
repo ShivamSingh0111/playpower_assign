@@ -1,0 +1,80 @@
+.headerWrapper {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.metadataRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+
+.leftMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.rating {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.reviewCount {
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.superhostBadge {
+  color: var(--color-text-primary);
+}
+
+.locationLink {
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.actionsGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: background-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  background-color: var(--color-surface-hover);
+}

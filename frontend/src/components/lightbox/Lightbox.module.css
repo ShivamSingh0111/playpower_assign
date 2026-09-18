@@ -1,0 +1,236 @@
+/* ============================================================
+   Lightbox – Airbnb White Full-Screen Viewer
+   All images rendered at the exact same uniform size
+   ============================================================ */
+
+/* Full-screen white overlay */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ── TOP BAR ─────────────────────────────────────────────── */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 28px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Grid icon on the left */
+.gridBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #222222;
+  transition: background-color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.gridBtn:hover {
+  background-color: #f7f7f7;
+}
+
+/* Photo title – centered absolutely */
+.photoTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+  white-space: nowrap;
+  pointer-events: none;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* Right side: counter + close */
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.photoCounter {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555555;
+  letter-spacing: 0.01em;
+}
+
+.closeBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #222222;
+  transition: background-color 0.15s ease;
+}
+
+.closeBtn:hover {
+  background-color: #f7f7f7;
+}
+
+/* ── STAGE: image + floating nav buttons ─────────────────── */
+.stage {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 16px 80px;
+}
+
+/* Large circular nav buttons on far edges */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  z-index: 10;
+  color: #222222;
+}
+
+.navBtn:hover {
+  transform: translateY(-50%) scale(1.06);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+  background-color: #f7f7f7;
+}
+
+.navBtn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.prevBtn {
+  left: 28px;
+}
+
+.nextBtn {
+  right: 28px;
+}
+
+/* ── UNIFORM IMAGE CONTAINER: All images have the exact same size ── */
+.imageWrapper {
+  width: min(980px, 85vw);
+  height: min(620px, calc(100vh - 130px));
+  aspect-ratio: 16 / 10;
+  max-width: 980px;
+  max-height: calc(100vh - 130px);
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f2f2f2;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.currentImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: imageFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes imageFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── FADE ANIMATION ──────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── FOCUS VISIBLE ───────────────────────────────────────── */
+.navBtn:focus-visible,
+.closeBtn:focus-visible,
+.gridBtn:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stage {
+    padding: 12px 16px;
+  }
+  
+  .imageWrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: calc(100vh - 140px);
+    border-radius: 8px;
+  }
+  
+  .prevBtn {
+    left: 12px;
+  }
+  
+  .nextBtn {
+    right: 12px;
+  }
+  
+  .photoTitle {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .lightboxOverlay,
+  .currentImage {
+    animation: none;
+  }
+}

@@ -1,0 +1,213 @@
+.reviewsContainer {
+  padding: 48px 0;
+  border-bottom: 1px solid #EBEBEB;
+  scroll-margin-top: 100px;
+}
+
+/* ── Hero Rating Area (Screenshot 3) ─────────────────── */
+.heroRatingArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.wreathRatingRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.laurelBranch {
+  flex-shrink: 0;
+}
+
+.hugeRating {
+  font-size: 88px;
+  font-weight: 800;
+  color: #222222;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.guestFavouriteTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222222;
+  margin-bottom: 8px;
+}
+
+.guestFavouriteSub {
+  font-size: 16px;
+  color: #717171;
+  max-width: 480px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.howReviewsWorkLink {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ── Category Breakdown Row (Screenshot 3) ──────────── */
+.categoriesRow {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.categoryCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0 16px;
+}
+
+.categoryCol:first-child {
+  padding-left: 0;
+  flex: 1.3;
+}
+
+.categoryCol:last-child {
+  padding-right: 0;
+}
+
+.catLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+  white-space: nowrap;
+}
+
+.catScore {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222222;
+}
+
+.catDivider {
+  width: 1px;
+  background-color: #EBEBEB;
+  flex-shrink: 0;
+}
+
+.starsDistribution {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+}
+
+.histRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #222222;
+}
+
+.histTrack {
+  flex: 1;
+  height: 4px;
+  background-color: #EBEBEB;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.histFill {
+  height: 100%;
+  background-color: #222222;
+  border-radius: 2px;
+}
+
+/* ── Review Cards Grid ───────────────────────────────── */
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 48px;
+  margin-bottom: 32px;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reviewerMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewerName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+}
+
+.reviewerLocation {
+  font-size: 14px;
+  color: #717171;
+}
+
+.reviewDate {
+  font-size: 14px;
+  color: #222222;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.starsText {
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+
+.dateText {
+  color: #222222;
+  font-weight: 500;
+}
+
+.comment {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #222222;
+}
+
+.showAllReviewsBtn {
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  padding: 13px 23px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.showAllReviewsBtn:hover {
+  background-color: #F7F7F7;
+}

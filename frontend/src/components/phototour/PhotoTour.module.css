@@ -1,0 +1,354 @@
+/* ============================================================
+   PhotoTour – Full-screen modal tour matching Airbnb design
+   ============================================================ */
+
+.tourOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: var(--color-surface, #ffffff);
+  overflow-y: auto;
+  animation: slideUpTour 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpTour {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Sticky Top Bar ───────────────────────────────────────── */
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background-color: var(--color-surface, #ffffff);
+  border-bottom: 1px solid var(--color-border-light, #ebebeb);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.backBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full, 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: background-color var(--transition-fast, 0.15s ease);
+}
+
+.backBtn:hover {
+  background-color: var(--color-surface-hover, #f7f7f7);
+}
+
+.tourTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary, #222222);
+  margin: 0;
+}
+
+.actionsGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 0.15s ease);
+}
+
+.actionBtn:hover {
+  background-color: var(--color-surface-hover, #f7f7f7);
+}
+
+.actionText {
+  text-decoration: underline;
+  color: var(--color-text-primary, #222222);
+}
+
+/* ── Sticky Category Navigation Bar ──────────────────────── */
+.stickyCategoryNav {
+  position: sticky;
+  top: 64px;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px 32px;
+}
+
+.categoryNavInner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.categoryNavInner::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryPill {
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555555;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.categoryPill:hover {
+  background-color: #f7f7f7;
+  color: #222222;
+}
+
+.categoryPillActive {
+  background-color: #222222;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.categoryPillActive:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ── Tour Content Container ──────────────────────────────── */
+.tourContent {
+  max-width: 1120px;
+  margin: 28px auto 100px;
+  padding: 0 24px;
+}
+
+/* ── Top Room Thumbnails Quick Gallery ───────────────────── */
+.topThumbGallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+  margin-bottom: 44px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--color-border-light, #ebebeb);
+}
+
+.topThumbCard {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+
+.topThumbCard:hover {
+  transform: translateY(-2px);
+}
+
+.topThumbImageWrapper {
+  width: 96px;
+  height: 68px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.topThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.topThumbLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary, #222222);
+  max-width: 96px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topThumbCardActive .topThumbImageWrapper {
+  box-shadow: 0 0 0 2px var(--color-text-primary, #222222);
+}
+
+.topThumbCardActive .topThumbLabel {
+  font-weight: 700;
+}
+
+/* ── Room Section ────────────────────────────────────────── */
+.roomSection {
+  scroll-margin-top: 130px;
+  margin-bottom: 64px;
+}
+
+.roomHeader {
+  margin-bottom: 24px;
+}
+
+.roomTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary, #222222);
+  margin: 0 0 6px 0;
+}
+
+.roomAmenities {
+  font-size: 14px;
+  color: var(--color-text-secondary, #717171);
+  margin: 0;
+}
+
+/* ── Asymmetric 2-Column Photo Layout ────────────────────── */
+.roomPhotoLayout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.leftCol {
+  flex: 0 0 42%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rightCol {
+  flex: 1;
+  min-width: 0;
+}
+
+.photoCard {
+  cursor: pointer;
+  position: relative;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.photoCard:hover {
+  transform: translateY(-2px);
+}
+
+.leftImageWrapper {
+  width: 100%;
+  height: 270px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background-color: #f0f0f0;
+}
+
+.rightImageWrapper {
+  width: 100%;
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background-color: #f0f0f0;
+}
+
+.photoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.photoCard:hover .photoImg {
+  transform: scale(1.025);
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.photoCard:hover .photoOverlay {
+  opacity: 1;
+}
+
+.photoInfo {
+  margin-top: 12px;
+}
+
+.photoTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary, #222222);
+  margin: 0 0 4px 0;
+}
+
+.photoCaption {
+  font-size: 13px;
+  color: var(--color-text-secondary, #717171);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .topBar {
+    padding: 0 16px;
+  }
+  
+  .stickyCategoryNav {
+    padding: 8px 16px;
+    top: 60px;
+  }
+
+  .roomPhotoLayout {
+    flex-direction: column;
+  }
+
+  .leftCol {
+    flex: 1;
+    width: 100%;
+  }
+
+  .leftImageWrapper,
+  .rightImageWrapper {
+    height: 240px;
+  }
+}

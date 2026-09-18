@@ -1,0 +1,142 @@
+.summaryContainer {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.propertyHeader {
+  margin-bottom: 24px;
+}
+
+.propertyType {
+  font-size: 26px;
+  font-weight: 600;
+  color: #222222;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.propertySpecs {
+  font-size: 16px;
+  color: #222222;
+}
+
+/* Guest Favorite Banner Card */
+.guestFavoriteCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border: 1px solid #DDDDDD;
+  border-radius: 16px;
+  background-color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.guestFavoriteLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wreathWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.favoriteTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222222;
+}
+
+.favoriteSubtitle {
+  font-size: 14px;
+  color: #717171;
+  margin-top: 2px;
+  max-width: 320px;
+  line-height: 1.35;
+}
+
+.guestFavoriteRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.scoreBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreNumber {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222222;
+  line-height: 1.1;
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.badgeDivider {
+  width: 1px;
+  height: 36px;
+  background-color: #EBEBEB;
+}
+
+.reviewBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviewLabel {
+  font-size: 13px;
+  color: #222222;
+  text-decoration: underline;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Hosted By Row */
+.hostRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.hostAvatarImage {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  display: block;
+}
+
+.hostText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hostName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+}
+
+.hostSub {
+  font-size: 14px;
+  color: #717171;
+}
